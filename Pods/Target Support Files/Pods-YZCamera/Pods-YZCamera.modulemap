@@ -1,0 +1,6 @@
+module Pods_YZCamera [system] {
+  umbrella header "Pods-YZCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}

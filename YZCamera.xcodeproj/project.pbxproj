@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DC4F970606666B106B70228 /* libPods-YZCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */; };
+		A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E8921549211002EF57A /* AppDelegate.swift */; };
+		A0787E8F21549211002EF57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E8D21549211002EF57A /* Main.storyboard */; };
+		A0787E9121549214002EF57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9021549214002EF57A /* Assets.xcassets */; };
+		A0787E9421549214002EF57A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9221549214002EF57A /* LaunchScreen.storyboard */; };
+		A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E9C2154928E002EF57A /* MainViewController.swift */; };
+		A0787EA22154D3D2002EF57A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA12154D3D2002EF57A /* MainView.swift */; };
+		A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA42154D811002EF57A /* GlobalVariable.swift */; };
+		A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA62154E719002EF57A /* MainBottomView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.release.xcconfig"; sourceTree = "<group>"; };
+		91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YZCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0787E8621549211002EF57A /* YZCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0787E8921549211002EF57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0787E8E21549211002EF57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0787E9021549214002EF57A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0787E9321549214002EF57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0787E9521549214002EF57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0787E9C2154928E002EF57A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A0787EA12154D3D2002EF57A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A0787EA42154D811002EF57A /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		A0787EA62154E719002EF57A /* MainBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomView.swift; sourceTree = "<group>"; };
+		EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0787E8321549211002EF57A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC4F970606666B106B70228 /* libPods-YZCamera.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8AC244AF9F8D9369195C2F03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */,
+				5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A0787E7D21549211002EF57A = {
+			isa = PBXGroup;
+			children = (
+				A0787E8821549211002EF57A /* YZCamera */,
+				A0787E8721549211002EF57A /* Products */,
+				8AC244AF9F8D9369195C2F03 /* Pods */,
+				EB786A48D584A452634CD186 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0787E8721549211002EF57A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0787E8621549211002EF57A /* YZCamera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0787E8821549211002EF57A /* YZCamera */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EA32154D7C5002EF57A /* expansion */,
+				A0787E9E21549CCA002EF57A /* view */,
+				A0787E9B2154927D002EF57A /* controller */,
+				A0787E8921549211002EF57A /* AppDelegate.swift */,
+				A0787E8D21549211002EF57A /* Main.storyboard */,
+				A0787E9021549214002EF57A /* Assets.xcassets */,
+				A0787E9221549214002EF57A /* LaunchScreen.storyboard */,
+				A0787E9521549214002EF57A /* Info.plist */,
+			);
+			path = YZCamera;
+			sourceTree = "<group>";
+		};
+		A0787E9B2154927D002EF57A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0787E9C2154928E002EF57A /* MainViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A0787E9E21549CCA002EF57A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EA12154D3D2002EF57A /* MainView.swift */,
+				A0787EA62154E719002EF57A /* MainBottomView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A0787EA32154D7C5002EF57A /* expansion */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EA42154D811002EF57A /* GlobalVariable.swift */,
+			);
+			path = expansion;
+			sourceTree = "<group>";
+		};
+		EB786A48D584A452634CD186 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0787E8521549211002EF57A /* YZCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0787E9821549214002EF57A /* Build configuration list for PBXNativeTarget "YZCamera" */;
+			buildPhases = (
+				9B7BF29771F38CCF68EA6A93 /* [CP] Check Pods Manifest.lock */,
+				A0787E8221549211002EF57A /* Sources */,
+				A0787E8321549211002EF57A /* Frameworks */,
+				A0787E8421549211002EF57A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YZCamera;
+			productName = YZCamera;
+			productReference = A0787E8621549211002EF57A /* YZCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0787E7E21549211002EF57A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Q YiZhong";
+				TargetAttributes = {
+					A0787E8521549211002EF57A = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = A0787E8121549211002EF57A /* Build configuration list for PBXProject "YZCamera" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0787E7D21549211002EF57A;
+			productRefGroup = A0787E8721549211002EF57A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0787E8521549211002EF57A /* YZCamera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0787E8421549211002EF57A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0787E9421549214002EF57A /* LaunchScreen.storyboard in Resources */,
+				A0787E9121549214002EF57A /* Assets.xcassets in Resources */,
+				A0787E8F21549211002EF57A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B7BF29771F38CCF68EA6A93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YZCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0787E8221549211002EF57A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */,
+				A0787EA22154D3D2002EF57A /* MainView.swift in Sources */,
+				A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */,
+				A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */,
+				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0787E8D21549211002EF57A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0787E8E21549211002EF57A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0787E9221549214002EF57A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0787E9321549214002EF57A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0787E9621549214002EF57A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0787E9721549214002EF57A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0787E9921549214002EF57A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 437JAL24TE;
+				INFOPLIST_FILE = YZCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Q-YiZhong.YZCamera";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0787E9A21549214002EF57A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 437JAL24TE;
+				INFOPLIST_FILE = YZCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Q-YiZhong.YZCamera";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0787E8121549211002EF57A /* Build configuration list for PBXProject "YZCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0787E9621549214002EF57A /* Debug */,
+				A0787E9721549214002EF57A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0787E9821549214002EF57A /* Build configuration list for PBXNativeTarget "YZCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0787E9921549214002EF57A /* Debug */,
+				A0787E9A21549214002EF57A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0787E7E21549211002EF57A /* Project object */;
+}
