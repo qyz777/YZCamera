@@ -10,16 +10,14 @@ import UIKit
 
 let keyWindow = UIApplication.shared.keyWindow
 
-private let HUDKey = "yzcamera.hud"
-
 extension UIViewController {
     
     var HUD: MBProgressHUD? {
         get {
-            return objc_getAssociatedObject(self, HUDKey) as? MBProgressHUD
+            return objc_getAssociatedObject(self, RuntimeKey.HUDKey!) as? MBProgressHUD
         }
         set {
-            objc_setAssociatedObject(self, HUDKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, RuntimeKey.HUDKey!, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

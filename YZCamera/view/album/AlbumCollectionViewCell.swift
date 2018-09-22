@@ -44,6 +44,13 @@ class AlbumCollectionViewCell: UICollectionViewCell {
             imageView.image = newValue?.firstImage
             titleLabel.text = newValue?.albumName
         }
+        didSet {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.imageView.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
+            }) { (complete) in
+                self.imageView.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+            }
+        }
     }
     
     lazy var imageView: UIImageView = {
@@ -52,6 +59,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         view.clipsToBounds = true
         view.backgroundColor = ColorFromRGB(rgbValue: 0xa8a8a8)
         view.layer.cornerRadius = 8
+        view.transform = CGAffineTransform.init(scaleX: 0.6, y: 0.6)
         return view
     }()
     

@@ -17,6 +17,7 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar()
         initView()
         loadImage()
     }
@@ -25,9 +26,17 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         view.backgroundColor = UIColor.white
         collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.identifier())
         view.addSubview(collectionView)
+        yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
+        yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        
         collectionView.snp.makeConstraints { (make) in
-            make.top.right.left.bottom.equalTo(view)
+            make.top.equalTo(yz_navigationBar!.snp.bottom)
+            make.right.left.bottom.equalTo(view)
         }
+    }
+    
+    @objc func backBtnDidClicked() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func loadImage() {
@@ -35,10 +44,14 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         if status == PHAuthorizationStatus.restricted || status == PHAuthorizationStatus.denied {
             userShouldOpenAuth()
         }else {
+            collectionView.alpha = 0
             DispatchQueue.global().async {
                 self.allAlbums(complete: {
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
+                        UIView.animate(withDuration: 0.4, animations: {
+                            self.collectionView.alpha = 1
+                        })
                     }
                 })
             }
@@ -100,7 +113,6 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.model = dataArray[indexPath.row]
         return cell
     }
-    
     
     // MARK: lazy
     lazy var collectionView: UICollectionView = {
