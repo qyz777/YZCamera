@@ -9,12 +9,53 @@
 import UIKit
 
 @objc protocol MainBottomViewDelegate {
-    @objc func photoBtnDidClick() -> Void
+    @objc func photoBtnDidClick()
+    @objc func shouldPresentPhotoAlbum()
 }
 
 class MainBottomView: UIView {
     
     var yz_delegate: MainBottomViewDelegate?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSubviews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initSubviews() -> Void {
+        backgroundColor = ColorFromRGB(rgbValue: 0x333333)
+        
+        addSubview(btnBottomView)
+        addSubview(photoBtn)
+        addSubview(albumBtn)
+        
+        btnBottomView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: 80, height: 80))
+            make.center.equalTo(self)
+        }
+        
+        photoBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: 70, height: 70))
+            make.center.equalTo(self)
+        }
+        
+        albumBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(self).offset(-30)
+            make.centerY.equalTo(photoBtn)
+        }
+    }
+    
+    @objc func photoBtnDidClicked() {
+        yz_delegate?.photoBtnDidClick()
+    }
+    
+    @objc func albumBtnDidClicked() {
+        yz_delegate?.shouldPresentPhotoAlbum()
+    }
     
     lazy var photoBtn: UIButton = {
         let btn = UIButton.init()
@@ -37,34 +78,11 @@ class MainBottomView: UIView {
         view.layer.mask = maskLayer
         return view
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initSubviews()
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func initSubviews() -> Void {
-        backgroundColor = ColorFromRGB(rgbValue: 0x333333)
-        
-        addSubview(btnBottomView)
-        addSubview(photoBtn)
-        
-        btnBottomView.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: 80, height: 80))
-            make.center.equalTo(self)
-        }
-        
-        photoBtn.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: 70, height: 70))
-            make.center.equalTo(self)
-        }
-    }
-    
-    @objc func photoBtnDidClicked() -> Void {
-        yz_delegate?.photoBtnDidClick()
-    }
+    lazy var albumBtn: UIButton = {
+        let btn = UIButton.init(type: UIButton.ButtonType.custom)
+        btn.setImage(UIImage.init(named: "main_photo_album_btn"), for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(albumBtnDidClicked), for: UIControl.Event.touchUpInside)
+        return btn
+    }()
 }

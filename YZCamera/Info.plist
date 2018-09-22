@@ -2,14 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>此 App 需要您的同意才能读取相册</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>此 App 需要您的同意才能读取相册</string>
-	<key>Privacy - Media Libaray Usage Description
-
----------------------
-
-本文来自 RITL 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/runintolove/article/details/52087623?utm_source=copy </key>
-	<string>此 App 需要您的同意才能读取媒体资料库</string>
 	<key>NSCameraUsageDescription</key>
 	<string>此 App 需要您的同意才能调用相机</string>
 	<key>CFBundleDevelopmentRegion</key>

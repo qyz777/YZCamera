@@ -77,6 +77,10 @@ MainTopViewDelegate {
         photoOutput?.capturePhoto(with: setting, delegate: self)
     }
     
+    func shouldPresentPhotoAlbum() {
+        present(AlbumViewController(), animated: true, completion: nil)
+    }
+    
     // MARK: MainTopViewDelegate
     func cameraShouldSwitch() {
         let inUseDevide = inUseCamera()

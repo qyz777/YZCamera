@@ -38,19 +38,19 @@ class SaveViewController: UIViewController {
         }
         
         backBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(saveBtn).offset(-100)
+            make.left.equalTo(view).offset(30)
             make.centerY.equalTo(saveBtn)
         }
         
         toolBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(saveBtn).offset(100)
+            make.right.equalTo(view).offset(-30)
             make.centerY.equalTo(saveBtn)
         }
     }
     
     var imageData: Data? {
-        willSet(data) {
-            let image = UIImage.init(data: data!)
+        willSet {
+            let image = UIImage.init(data: newValue!)
             showImageView.image = image
         }
     }
