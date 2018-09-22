@@ -20,32 +20,31 @@ MainTopViewDelegate {
     var session: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
-    lazy var bottomView: MainBottomView = {
-        let view = MainBottomView.init()
-        view.yz_delegate = self
-        return view
-    }()
-    
-    lazy var topView: MainTopView = {
-        let view = MainTopView.init()
-        view.yz_delegate = self
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
         cameraConfig()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
     func initView() -> Void {
         view.backgroundColor = UIColor.white
+        view.addSubview(backView)
         view.addSubview(bottomView)
         view.addSubview(topView)
         
+        backView.snp.makeConstraints { (make) in
+            make.top.right.left.equalTo(view)
+            make.height.equalTo(SCREEN_HEIGHT - 180)
+        }
+        
         bottomView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(view)
-            make.height.equalTo(180)
+            make.top.equalTo(backView.snp.bottom)
         }
         
         topView.snp.makeConstraints { (make) in
@@ -66,8 +65,8 @@ MainTopViewDelegate {
             session?.addOutput(photoOutput!)
             previewLayer = AVCaptureVideoPreviewLayer.init(session: session!)
             previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            previewLayer?.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
-            view.layer.insertSublayer(previewLayer!, at: 0)
+            previewLayer?.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 180)
+            backView.layer.insertSublayer(previewLayer!, at: 0)
             session?.startRunning()
         }
     }
@@ -101,7 +100,10 @@ MainTopViewDelegate {
     // MARK: AVCapturePhotoCaptureDelegate
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         let imgData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer!, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
-        let image = UIImage.init(data: imgData!)
+        let vc = SaveViewController()
+        vc.imageData = imgData
+        vc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        present(vc, animated: true, completion: nil)
     }
     
     // MARK: private
@@ -125,4 +127,22 @@ MainTopViewDelegate {
         }
         return device
     }
+    
+    // MARK: lazy
+    lazy var backView: UIView = {
+        let view = UIView.init()
+        return view
+    }()
+    
+    lazy var bottomView: MainBottomView = {
+        let view = MainBottomView.init()
+        view.yz_delegate = self
+        return view
+    }()
+    
+    lazy var topView: MainTopView = {
+        let view = MainTopView.init()
+        view.yz_delegate = self
+        return view
+    }()
 }

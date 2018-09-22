@@ -16,6 +16,8 @@
 		A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA42154D811002EF57A /* GlobalVariable.swift */; };
 		A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA62154E719002EF57A /* MainBottomView.swift */; };
 		A0787EA921552D18002EF57A /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA821552D18002EF57A /* MainTopView.swift */; };
+		A0787EAC215603DF002EF57A /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EAB215603DF002EF57A /* SaveViewController.swift */; };
+		A0787EB321560EE2002EF57A /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		A0787EA42154D811002EF57A /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		A0787EA62154E719002EF57A /* MainBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomView.swift; sourceTree = "<group>"; };
 		A0787EA821552D18002EF57A /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		A0787EAB215603DF002EF57A /* SaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewController.swift; sourceTree = "<group>"; };
+		A0787EAE21560E07002EF57A /* YZCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YZCamera-Bridging-Header.h"; sourceTree = "<group>"; };
+		A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +89,7 @@
 				A0787E9021549214002EF57A /* Assets.xcassets */,
 				A0787E9221549214002EF57A /* LaunchScreen.storyboard */,
 				A0787E9521549214002EF57A /* Info.plist */,
+				A0787EAE21560E07002EF57A /* YZCamera-Bridging-Header.h */,
 			);
 			path = YZCamera;
 			sourceTree = "<group>";
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A0787E9C2154928E002EF57A /* MainViewController.swift */,
+				A0787EAB215603DF002EF57A /* SaveViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -99,8 +106,8 @@
 		A0787E9E21549CCA002EF57A /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A0787EA62154E719002EF57A /* MainBottomView.swift */,
-				A0787EA821552D18002EF57A /* MainTopView.swift */,
+				A0787EAD21560429002EF57A /* save */,
+				A0787EAA215603BA002EF57A /* main */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -109,8 +116,25 @@
 			isa = PBXGroup;
 			children = (
 				A0787EA42154D811002EF57A /* GlobalVariable.swift */,
+				A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */,
 			);
 			path = expansion;
+			sourceTree = "<group>";
+		};
+		A0787EAA215603BA002EF57A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EA62154E719002EF57A /* MainBottomView.swift */,
+				A0787EA821552D18002EF57A /* MainTopView.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		A0787EAD21560429002EF57A /* save */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = save;
 			sourceTree = "<group>";
 		};
 		EB786A48D584A452634CD186 /* Frameworks */ = {
@@ -154,6 +178,7 @@
 				TargetAttributes = {
 					A0787E8521549211002EF57A = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -215,7 +240,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */,
+				A0787EAC215603DF002EF57A /* SaveViewController.swift in Sources */,
 				A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */,
+				A0787EB321560EE2002EF57A /* UIViewController+HUD.swift in Sources */,
 				A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */,
 				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
 				A0787EA921552D18002EF57A /* MainTopView.swift in Sources */,
@@ -365,6 +392,7 @@
 			baseConfigurationReference = EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 437JAL24TE;
 				INFOPLIST_FILE = YZCamera/Info.plist;
@@ -375,6 +403,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Q-YiZhong.YZCamera";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YZCamera/YZCamera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -385,6 +415,7 @@
 			baseConfigurationReference = 5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 437JAL24TE;
 				INFOPLIST_FILE = YZCamera/Info.plist;
@@ -395,6 +426,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Q-YiZhong.YZCamera";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YZCamera/YZCamera-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
