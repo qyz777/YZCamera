@@ -9,7 +9,10 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, AVCapturePhotoCaptureDelegate, MainBottomViewDelegate {
+class MainViewController: UIViewController,
+AVCapturePhotoCaptureDelegate,
+MainBottomViewDelegate,
+MainTopViewDelegate {
     
     var device: AVCaptureDevice?
     var input: AVCaptureDeviceInput?
@@ -17,8 +20,14 @@ class MainViewController: UIViewController, AVCapturePhotoCaptureDelegate, MainB
     var session: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
-    lazy var bottomView : MainBottomView = {
+    lazy var bottomView: MainBottomView = {
         let view = MainBottomView.init()
+        view.yz_delegate = self
+        return view
+    }()
+    
+    lazy var topView: MainTopView = {
+        let view = MainTopView.init()
         view.yz_delegate = self
         return view
     }()
@@ -32,10 +41,16 @@ class MainViewController: UIViewController, AVCapturePhotoCaptureDelegate, MainB
     func initView() -> Void {
         view.backgroundColor = UIColor.white
         view.addSubview(bottomView)
+        view.addSubview(topView)
         
         bottomView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(view)
             make.height.equalTo(180)
+        }
+        
+        topView.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(view)
+            make.height.equalTo(64)
         }
     }
     
@@ -63,9 +78,51 @@ class MainViewController: UIViewController, AVCapturePhotoCaptureDelegate, MainB
         photoOutput?.capturePhoto(with: setting, delegate: self)
     }
     
+    // MARK: MainTopViewDelegate
+    func cameraShouldSwitch() {
+        let inUseDevide = inUseCamera()
+        if inUseDevide != nil {
+            let deviceInput = try? AVCaptureDeviceInput.init(device: inUseDevide!)
+            session?.beginConfiguration()
+            session?.removeInput(input!)
+            if (session?.canAddInput(deviceInput!))! {
+                session?.addInput(deviceInput!)
+                device = inUseDevide
+                input = deviceInput
+            }else {
+                session?.addInput(input!)
+            }
+            session?.commitConfiguration()
+        }else {
+            print("摄像头切换错误")
+        }
+    }
+    
     // MARK: AVCapturePhotoCaptureDelegate
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         let imgData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer!, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
         let image = UIImage.init(data: imgData!)
+    }
+    
+    // MARK: private
+    private func cameraWith(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let discovery = AVCaptureDevice.DiscoverySession.init(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: position)
+        let devices = discovery.devices
+        for device in devices {
+            if device.position == position {
+                return device
+            }
+        }
+        return nil
+    }
+    
+    private func inUseCamera() -> AVCaptureDevice? {
+        let device: AVCaptureDevice?
+        if self.device?.position == AVCaptureDevice.Position.back {
+            device = cameraWith(position: AVCaptureDevice.Position.front) ?? nil
+        }else {
+            device = cameraWith(position: AVCaptureDevice.Position.back) ?? nil
+        }
+        return device
     }
 }

@@ -13,9 +13,9 @@
 		A0787E9121549214002EF57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9021549214002EF57A /* Assets.xcassets */; };
 		A0787E9421549214002EF57A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9221549214002EF57A /* LaunchScreen.storyboard */; };
 		A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E9C2154928E002EF57A /* MainViewController.swift */; };
-		A0787EA22154D3D2002EF57A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA12154D3D2002EF57A /* MainView.swift */; };
 		A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA42154D811002EF57A /* GlobalVariable.swift */; };
 		A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA62154E719002EF57A /* MainBottomView.swift */; };
+		A0787EA921552D18002EF57A /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA821552D18002EF57A /* MainTopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +28,9 @@
 		A0787E9321549214002EF57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0787E9521549214002EF57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0787E9C2154928E002EF57A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A0787EA12154D3D2002EF57A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A0787EA42154D811002EF57A /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		A0787EA62154E719002EF57A /* MainBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomView.swift; sourceTree = "<group>"; };
+		A0787EA821552D18002EF57A /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,8 +99,8 @@
 		A0787E9E21549CCA002EF57A /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A0787EA12154D3D2002EF57A /* MainView.swift */,
 				A0787EA62154E719002EF57A /* MainBottomView.swift */,
+				A0787EA821552D18002EF57A /* MainTopView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -215,10 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */,
-				A0787EA22154D3D2002EF57A /* MainView.swift in Sources */,
 				A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */,
 				A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */,
 				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
+				A0787EA921552D18002EF57A /* MainTopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
