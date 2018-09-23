@@ -78,7 +78,8 @@ MainTopViewDelegate {
     }
     
     func shouldPresentPhotoAlbum() {
-        present(AlbumViewController(), animated: true, completion: nil)
+        let nav = UINavigationController.init(rootViewController: AlbumViewController())
+        present(nav, animated: true, completion: nil)
     }
     
     // MARK: MainTopViewDelegate

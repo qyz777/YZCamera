@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Photos
 
 class AlbumModel: NSObject {
     var albumName: String?
     var firstImage: UIImage?
+    var collection: PHAssetCollection?
+    var fetchResult: PHFetchResult<PHAsset>?
 }

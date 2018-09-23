@@ -20,7 +20,7 @@ extension UIViewController {
     }
     
     func navigationBar() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.isHidden = true
         yz_navigationBar = YZNavigationBar.init(frame: CGRect.zero)
         view.addSubview(yz_navigationBar!)
         yz_navigationBar!.snp.makeConstraints { (make) in

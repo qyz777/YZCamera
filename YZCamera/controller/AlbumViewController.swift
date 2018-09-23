@@ -28,6 +28,7 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         view.addSubview(collectionView)
         yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
         yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz_navigationBar?.titleLabel.text = "相册"
         
         collectionView.snp.makeConstraints { (make) in
             make.top.equalTo(yz_navigationBar!.snp.bottom)
@@ -46,11 +47,11 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         }else {
             collectionView.alpha = 0
             DispatchQueue.global().async {
-                self.allAlbums(complete: {
+                self.allAlbums(complete: { [weak self] in
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self?.collectionView.reloadData()
                         UIView.animate(withDuration: 0.4, animations: {
-                            self.collectionView.alpha = 1
+                            self?.collectionView.alpha = 1
                         })
                     }
                 })
@@ -68,19 +69,23 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     private func allAlbums(complete: () -> Void) {
-        let albums = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.album, subtype: PHAssetCollectionSubtype.albumRegular, options: nil)
+        let albums = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.any, options: nil)
         albums.enumerateObjects { (collection, index, pointer) in
             if collection.isKind(of: PHAssetCollection.self) {
-                let fetchResult = PHAsset.fetchKeyAssets(in: collection, options: nil)
-                if (fetchResult?.count)! > 0 {
-                    let asset = fetchResult?.firstObject
+                let fetchResult = PHAsset.fetchAssets(in: collection, options: nil)
+                if fetchResult.count > 0 {
+                    let asset = fetchResult.firstObject
                     let opt = PHImageRequestOptions.init()
                     opt.isSynchronous = true
                     let manager = PHImageManager.init()
-                    manager.requestImage(for: asset!, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.aspectFill, options: opt, resultHandler: { (result, info) in
+                    manager.requestImageData(for: asset!, options: opt, resultHandler: { (data, dataUTI, orientation, info) in
+                        let result = UIImage.init(data: data!)
+                        let compressionData = result?.jpegData(compressionQuality: 0)
                         let model = AlbumModel.init()
                         model.albumName = collection.localizedTitle
-                        model.firstImage = result ?? UIImage.init(named: "album_default_album")
+                        model.firstImage = UIImage.init(data: compressionData!)
+                        model.collection = collection
+                        model.fetchResult = fetchResult
                         self.dataArray.append(model)
                     })
                 }
@@ -110,8 +115,15 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.identifier(), for: indexPath)  as! AlbumCollectionViewCell
-        cell.model = dataArray[indexPath.row]
+        cell.model = dataArray[indexPath.item]
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = MoreAlbumViewController()
+        vc.model = dataArray[indexPath.item]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: lazy
