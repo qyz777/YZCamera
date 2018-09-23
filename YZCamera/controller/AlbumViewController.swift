@@ -11,8 +11,6 @@ import Photos
 
 class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var assets: Array<PHAsset> = []
-    
     var dataArray: Array<AlbumModel> = []
 
     override func viewDidLoad() {
@@ -56,15 +54,6 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
                     }
                 })
             }
-        }
-    }
-    
-    private func allAssetsInPhotoAlbum() {
-        let options = PHFetchOptions.init()
-        options.sortDescriptors = [NSSortDescriptor.init(key: "creationDate", ascending: true)]
-        let result = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: options)
-        result.enumerateObjects { (asset, index, pointer) in
-            self.assets.append(asset)
         }
     }
     

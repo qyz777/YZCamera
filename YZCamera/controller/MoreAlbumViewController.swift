@@ -36,7 +36,7 @@ class MoreAlbumViewController: UIViewController, UICollectionViewDelegate, UICol
         willSet {
             DispatchQueue.global().async {
                 autoreleasepool {
-                    newValue?.fetchResult?.enumerateObjects({ (asset, index, pointer) in
+                    newValue?.fetchResult?.enumerateObjects(options: NSEnumerationOptions.reverse, using: { (asset, index, pointer) in
                         let opt = PHImageRequestOptions.init()
                         opt.isSynchronous = true
                         let manager = PHImageManager.init()
@@ -65,6 +65,14 @@ class MoreAlbumViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreAlbumCollectionViewCell.identifier(), for: indexPath) as! MoreAlbumCollectionViewCell
         cell.image = dataArray[indexPath.item]
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MoreAlbumCollectionViewCell
+        let vc = EditPhotoViewController.init(center: cell.center, frame: cell.frame)
+        vc.asset = model?.fetchResult![(model?.fetchResult?.count)! - indexPath.item - 1]
+        present(vc, animated: false, completion: nil)
     }
     
     lazy var collectionView: UICollectionView = {
