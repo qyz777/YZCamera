@@ -32,7 +32,6 @@ MainTopViewDelegate {
     }
 
     func initView() -> Void {
-        view.backgroundColor = UIColor.white
         view.addSubview(backView)
         view.addSubview(bottomView)
         view.addSubview(topView)

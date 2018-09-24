@@ -35,19 +35,12 @@ class MoreAlbumViewController: UIViewController, UICollectionViewDelegate, UICol
     var model: AlbumModel? {
         willSet {
             DispatchQueue.global().async {
-                autoreleasepool {
-                    newValue?.fetchResult?.enumerateObjects(options: NSEnumerationOptions.reverse, using: { (asset, index, pointer) in
-                        let opt = PHImageRequestOptions.init()
-                        opt.isSynchronous = true
-                        let manager = PHImageManager.init()
-                        manager.requestImage(for: asset, targetSize: CGSize.init(width: (SCREEN_WIDTH / 4) - 4, height: (SCREEN_WIDTH / 4) - 4), contentMode: PHImageContentMode.aspectFill, options: opt, resultHandler: { (image, info) in
-                            self.dataArray.append(image!)
-                        })
-                    })
-                }
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+                AlbumManager.shared.getImages(fetch: (newValue?.fetchResult)!, size: CGSize.init(width: (SCREEN_WIDTH / 4) - 4, height: (SCREEN_WIDTH / 4) - 4), complete: { (array) in
+                    self.dataArray = array
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
             }
         }
     }

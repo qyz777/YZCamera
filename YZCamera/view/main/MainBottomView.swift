@@ -8,14 +8,14 @@
 
 import UIKit
 
-@objc protocol MainBottomViewDelegate {
+@objc protocol MainBottomViewDelegate: class {
     @objc func photoBtnDidClick()
     @objc func shouldPresentPhotoAlbum()
 }
 
 class MainBottomView: UIView {
     
-    var yz_delegate: MainBottomViewDelegate?
+    weak var yz_delegate: MainBottomViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

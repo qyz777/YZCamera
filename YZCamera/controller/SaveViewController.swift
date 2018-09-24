@@ -56,7 +56,7 @@ class SaveViewController: UIViewController {
     }
     
     @objc func saveBtnDidClicked() {
-        UIImageWriteToSavedPhotosAlbum(showImageView.image!, self, #selector(save(image:didFinishWithError:contentInfo:)), nil)
+        AlbumManager.shared.save(image: showImageView.image!)
     }
     
     @objc func backBtnDidClicked() {
@@ -65,14 +65,6 @@ class SaveViewController: UIViewController {
     
     @objc func toolBtnDidClicked() {
         
-    }
-    
-    @objc func save(image: UIImage, didFinishWithError error: Error?, contentInfo: AnyObject) {
-        if error != nil {
-            showToast(string: "保存失败")
-        }else {
-            showToast(string: "保存成功")
-        }
     }
     
     // MARK: lazy

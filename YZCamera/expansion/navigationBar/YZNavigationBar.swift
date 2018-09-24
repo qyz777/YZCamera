@@ -15,9 +15,15 @@ class YZNavigationBar: UIView {
         backgroundColor = UIColor.white
         addSubview(leftBtn)
         addSubview(titleLabel)
+        addSubview(rightBtn)
         
         leftBtn.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(15)
+            make.centerY.equalTo(self)
+        }
+        
+        rightBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(self).offset(-15)
             make.centerY.equalTo(self)
         }
         
@@ -32,6 +38,12 @@ class YZNavigationBar: UIView {
     
     lazy var leftBtn: UIButton = {
         let btn = UIButton.init(type: UIButton.ButtonType.custom)
+        return btn
+    }()
+    
+    lazy var rightBtn: UIButton = {
+        let btn = UIButton.init(type: UIButton.ButtonType.custom)
+        btn.isHidden = true
         return btn
     }()
     

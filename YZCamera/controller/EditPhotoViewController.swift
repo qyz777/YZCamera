@@ -10,7 +10,11 @@ import UIKit
 import Photos
 import AudioToolbox
 
-class EditPhotoViewController: UIViewController {
+class EditPhotoViewController: UIViewController,
+    EditPhotoToolBarDelegate,
+    EditSelectToolBarDelegate,
+    EditOperationBarDelegate
+{
     
     var startCenter: CGPoint = CGPoint.zero
     var startFrame: CGRect = CGRect.zero
@@ -18,12 +22,14 @@ class EditPhotoViewController: UIViewController {
     var startImageViewCenter: CGPoint = CGPoint.zero
     var startImageViewSize: CGSize = CGSize.zero
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    var originalImage: UIImage = UIImage.init()
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
     }
     
     convenience init(center: CGPoint, frame: CGRect) {
-        self.init(nibName: nil, bundle: nil)
+        self.init()
         modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         modalPresentationStyle = UIModalPresentationStyle.overFullScreen
         startCenter = CGPoint.init(x: center.x, y: center.y + 64)
@@ -44,8 +50,8 @@ class EditPhotoViewController: UIViewController {
         super.viewDidAppear(animated)
         UIView.animate(withDuration: 0.3, animations: {
             self.view.backgroundColor = UIColor.init(white: 1, alpha: 1)
-            self.imageView.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 80 - 64)
-            self.imageView.center = CGPoint.init(x: SCREEN_WIDTH / 2, y: 64 + (SCREEN_HEIGHT - 80 - 64) / 2)
+            self.imageView.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 70 - 64)
+            self.imageView.center = CGPoint.init(x: SCREEN_WIDTH / 2, y: 64 + (SCREEN_HEIGHT - 70 - 64) / 2)
         }) { (complete) in
             self.startImageViewCenter = self.imageView.center
             self.startImageViewSize = self.imageView.frame.size
@@ -56,11 +62,34 @@ class EditPhotoViewController: UIViewController {
         navigationBar()
         yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
         yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz_navigationBar?.rightBtn.setImage(UIImage.init(named: "edit_save_btn"), for: UIControl.State.normal)
+        yz_navigationBar?.rightBtn.isHidden = false
+        yz_navigationBar?.rightBtn.addTarget(self, action: #selector(saveBtnDidClicked), for: UIControl.Event.touchUpInside)
         yz_navigationBar?.titleLabel.text = "编辑"
         yz_navigationBar?.layer.zPosition = 99
         view.addSubview(imageView)
+        view.addSubview(toolBar)
+        view.addSubview(toolItemBar)
+        view.addSubview(operationBar)
+        
         imageView.frame = startFrame
         imageView.center = startCenter
+        
+        toolBar.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalTo(self.view)
+            make.height.equalTo(70)
+        }
+        
+        operationBar.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalTo(self.view)
+            make.height.equalTo(34)
+        }
+        
+        toolItemBar.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(operationBar.snp.top)
+            make.height.equalTo(70 + 10)
+        }
         
         let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(imageViewOnPinch(pinch:)))
         view.addGestureRecognizer(pinch)
@@ -68,16 +97,19 @@ class EditPhotoViewController: UIViewController {
     
     var asset: PHAsset? {
         willSet {
-            let opt = PHImageRequestOptions.init()
-            opt.isSynchronous = true
-            let manager = PHImageManager.init()
-            manager.requestImage(for: newValue!, targetSize: CGSize.init(width: newValue!.pixelWidth, height: newValue!.pixelHeight), contentMode: PHImageContentMode.aspectFill, options: opt) { (image, info) in
+            AlbumManager.shared.getOriginalImage(asset: newValue!) { (image) in
                 self.imageView.image = image
+                self.originalImage = image
             }
         }
     }
     
     @objc func backBtnDidClicked() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func saveBtnDidClicked() {
+        AlbumManager.shared.save(image: imageView.image!)
         dismiss(animated: true, completion: nil)
     }
     
@@ -104,12 +136,12 @@ class EditPhotoViewController: UIViewController {
                     self.imageView.frame = self.startFrame
                     self.imageView.center = self.startCenter
                 }) { (complete) in
-                    self.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }else {
                 UIView.animate(withDuration: 0.2) {
                     self.view.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                    self.imageView.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 80 - 64)
+                    self.imageView.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 70 - 64)
                     self.imageView.center = self.startImageViewCenter
                 }
             }
@@ -126,7 +158,85 @@ class EditPhotoViewController: UIViewController {
             
             if pinch.scale < 1.0 {
                 imageView.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
-                AudioServicesPlaySystemSound(1519);
+                let feed = UIImpactFeedbackGenerator.init(style: UIImpactFeedbackGenerator.FeedbackStyle.light)
+                feed.impactOccurred()
+            }
+        }
+    }
+    
+    // MARK: EditPhotoToolBarDelegate
+    func didSelectToolItem(type: PhotoToolBarType) {
+        switch type {
+        case .filter:
+            toolItemBar.barType = type
+            getFilterArray()
+            showToolItemBar()
+            break
+        }
+    }
+    
+    // MARK: EditSelectToolBarDelegate
+    func itemDidSelect(index: Int) {
+        switch toolItemBar.barType {
+        case .filter:
+            imageView.image = FilterManager.shared.getEffectFilter(style: FilterStyleEffect.style(index: index), image: originalImage)
+            break
+        }
+    }
+    
+    // MARK: EditOperationBarDelegate
+    func imageShouldChange(isSave: Bool) {
+        if isSave == true {
+            originalImage = imageView.image!
+            hiddenToolItemBar()
+        }else {
+            hiddenToolItemBar()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hiddenToolItemBar()
+    }
+    
+    private func showToolItemBar() {
+        toolItemBar.isHidden = false
+        operationBar.isHidden = false
+        toolItemBar.alpha = 0
+        operationBar.alpha = 0
+        yz_navigationBar?.isHidden = true
+        UIView.animate(withDuration: 0.3, animations: {
+            self.toolItemBar.alpha = 1
+            self.toolBar.alpha = 0
+            self.operationBar.alpha = 1
+            self.imageView.center = CGPoint.init(x: self.startImageViewCenter.x, y: self.startImageViewCenter.y - 44)
+        }) { (complete) in
+            self.toolBar.alpha = 1
+            self.toolBar.isHidden = true
+        }
+    }
+    
+    private func hiddenToolItemBar() {
+        toolBar.isHidden = false
+        toolBar.alpha = 0
+        self.toolBar.setCellState(indexPath: self.toolBar.lastIndexPath, selected: false)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.toolBar.alpha = 1
+            self.toolItemBar.alpha = 0
+            self.operationBar.alpha = 1
+            self.imageView.center = self.startImageViewCenter
+        }) { (complete) in
+            self.toolItemBar.alpha = 1
+            self.toolItemBar.isHidden = true
+            self.operationBar.alpha = 1
+            self.operationBar.isHidden = true
+            self.yz_navigationBar?.isHidden = false
+        }
+    }
+    
+    private func getFilterArray() {
+        AlbumManager.shared.getImage(asset: asset!, size: CGSize.init(width: 50, height: 50)) { (image) in
+            FilterManager.shared.allEffectFilter(image: image) { (array) in
+                self.toolItemBar.dataArray = array
             }
         }
     }
@@ -134,10 +244,30 @@ class EditPhotoViewController: UIViewController {
     lazy var imageView: UIImageView = {
         let view = UIImageView.init()
         view.clipsToBounds = true
-        view.contentMode = UIImageView.ContentMode.scaleAspectFill
+        view.contentMode = UIImageView.ContentMode.scaleAspectFit
         view.isUserInteractionEnabled = true
         let pan = UIPanGestureRecognizer.init(target: self, action: #selector(imageViewOnPan(pan:)))
         view.addGestureRecognizer(pan)
+        return view
+    }()
+    
+    lazy var toolBar: EditPhotoToolBar = {
+        let view = EditPhotoToolBar()
+        view.yz_delegate = self
+        return view
+    }()
+    
+    lazy var toolItemBar: EditSelectToolBar = {
+        let view = EditSelectToolBar()
+        view.yz_delegate = self
+        view.isHidden = true
+        return view
+    }()
+    
+    lazy var operationBar: EditOperationBar = {
+        let view = EditOperationBar()
+        view.yz_delegate = self
+        view.isHidden = true
         return view
     }()
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Photos
 
 class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -39,48 +38,22 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     private func loadImage() {
-        let status = PHPhotoLibrary.authorizationStatus()
-        if status == PHAuthorizationStatus.restricted || status == PHAuthorizationStatus.denied {
+        if AlbumManager.shared.hasAuth() {
             userShouldOpenAuth()
         }else {
             collectionView.alpha = 0
             DispatchQueue.global().async {
-                self.allAlbums(complete: { [weak self] in
+                AlbumManager.shared.allAlbums(complete: { (array) in
                     DispatchQueue.main.async {
-                        self?.collectionView.reloadData()
+                        self.dataArray = array
+                        self.collectionView.reloadData()
                         UIView.animate(withDuration: 0.4, animations: {
-                            self?.collectionView.alpha = 1
+                            self.collectionView.alpha = 1
                         })
                     }
                 })
             }
         }
-    }
-    
-    private func allAlbums(complete: () -> Void) {
-        let albums = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.any, options: nil)
-        albums.enumerateObjects { (collection, index, pointer) in
-            if collection.isKind(of: PHAssetCollection.self) {
-                let fetchResult = PHAsset.fetchAssets(in: collection, options: nil)
-                if fetchResult.count > 0 {
-                    let asset = fetchResult.firstObject
-                    let opt = PHImageRequestOptions.init()
-                    opt.isSynchronous = true
-                    let manager = PHImageManager.init()
-                    manager.requestImageData(for: asset!, options: opt, resultHandler: { (data, dataUTI, orientation, info) in
-                        let result = UIImage.init(data: data!)
-                        let compressionData = result?.jpegData(compressionQuality: 0)
-                        let model = AlbumModel.init()
-                        model.albumName = collection.localizedTitle
-                        model.firstImage = UIImage.init(data: compressionData!)
-                        model.collection = collection
-                        model.fetchResult = fetchResult
-                        self.dataArray.append(model)
-                    })
-                }
-            }
-        }
-        complete()
     }
     
     private func userShouldOpenAuth() {
@@ -113,6 +86,13 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         let vc = MoreAlbumViewController()
         vc.model = dataArray[indexPath.item]
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset
+        if offset.y <= -110 {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: lazy

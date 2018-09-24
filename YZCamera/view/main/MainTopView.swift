@@ -8,14 +8,14 @@
 
 import UIKit
 
-@objc protocol MainTopViewDelegate {
+@objc protocol MainTopViewDelegate: class {
 //    切换前后相机
     func cameraShouldSwitch()
 }
 
 class MainTopView: UIView {
     
-    var yz_delegate: MainTopViewDelegate?
+    weak var yz_delegate: MainTopViewDelegate?
     
     lazy var switchBtn: UIButton = {
         let btn = UIButton.init(type: UIButton.ButtonType.custom)
