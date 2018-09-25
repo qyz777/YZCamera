@@ -33,7 +33,7 @@ class EditCrossToolBar: UIView {
         
         redLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.redSlider)
-            make.bottom.equalTo(self.redSlider.snp.top).offset(10)
+            make.bottom.equalTo(self.redSlider.snp.top).offset(-8)
         }
         
         greenSlider.snp.makeConstraints { (make) in
@@ -43,7 +43,7 @@ class EditCrossToolBar: UIView {
         
         greenLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.greenSlider)
-            make.bottom.equalTo(self.greenSlider.snp.top).offset(10)
+            make.bottom.equalTo(self.greenSlider.snp.top).offset(-8)
         }
         
         blueSlider.snp.makeConstraints { (make) in
@@ -54,7 +54,7 @@ class EditCrossToolBar: UIView {
         
         blueLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.blueSlider)
-            make.bottom.equalTo(self.blueSlider.snp.top).offset(10)
+            make.bottom.equalTo(self.blueSlider.snp.top).offset(-8)
         }
     }
     
@@ -120,7 +120,7 @@ class EditCrossToolBar: UIView {
         label.text = "Red"
         label.textColor = ColorFromRGB(rgbValue: 0x333333)
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         return label
     }()
     
@@ -129,7 +129,7 @@ class EditCrossToolBar: UIView {
         label.text = "Green"
         label.textColor = ColorFromRGB(rgbValue: 0x333333)
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         return label
     }()
     
@@ -138,7 +138,7 @@ class EditCrossToolBar: UIView {
         label.text = "Blue"
         label.textColor = ColorFromRGB(rgbValue: 0x333333)
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         return label
     }()
 }

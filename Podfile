@@ -3,5 +3,6 @@ target:'YZCamera' do
 
 pod 'SnapKit'
 pod 'MBProgressHUD'
+pod 'GPUImage'
 end
 

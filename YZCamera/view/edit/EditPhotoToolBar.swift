@@ -46,7 +46,7 @@ class EditPhotoToolBar: UICollectionView, UICollectionViewDelegate, UICollection
         register(EditPhotoToolBarCell.self, forCellWithReuseIdentifier: EditPhotoToolBarCell.identifier())
         dataArray = [["image": "edit_bar_filter", "title": "滤镜"],
                      ["image": "edit_bar_blur", "title": "模糊"],
-                     ["image": "edit_bar_cross", "title": "混合"],
+                     ["image": "edit_bar_cross", "title": "色彩"],
                      ["image": "edit_bar_sharpen", "title": "锐化"]]
         reloadData()
     }
