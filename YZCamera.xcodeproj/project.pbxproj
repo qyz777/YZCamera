@@ -35,6 +35,8 @@
 		A0787ED521587478002EF57A /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787ED421587478002EF57A /* FilterModel.swift */; };
 		A0787ED7215890C8002EF57A /* AlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787ED6215890C8002EF57A /* AlbumManager.swift */; };
 		A0787ED921589B6F002EF57A /* EditOperationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787ED821589B6F002EF57A /* EditOperationBar.swift */; };
+		A0787EDB2158CC77002EF57A /* EditSliderToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EDA2158CC76002EF57A /* EditSliderToolBar.swift */; };
+		A0787EDF2159D3EA002EF57A /* EditCrossToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		A0787ED421587478002EF57A /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		A0787ED6215890C8002EF57A /* AlbumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumManager.swift; sourceTree = "<group>"; };
 		A0787ED821589B6F002EF57A /* EditOperationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOperationBar.swift; sourceTree = "<group>"; };
+		A0787EDA2158CC76002EF57A /* EditSliderToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSliderToolBar.swift; sourceTree = "<group>"; };
+		A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCrossToolBar.swift; sourceTree = "<group>"; };
 		EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +211,8 @@
 				A0787ED0215872B6002EF57A /* EditSelectToolBar.swift */,
 				A0787ED221587358002EF57A /* EditSelectToolBarCell.swift */,
 				A0787ED821589B6F002EF57A /* EditOperationBar.swift */,
+				A0787EDA2158CC76002EF57A /* EditSliderToolBar.swift */,
+				A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */,
 			);
 			path = edit;
 			sourceTree = "<group>";
@@ -326,9 +332,11 @@
 				A0787ED521587478002EF57A /* FilterModel.swift in Sources */,
 				A0787EB721562627002EF57A /* AlbumCollectionViewCell.swift in Sources */,
 				A0787ECF2157B29E002EF57A /* FilterManager.swift in Sources */,
+				A0787EDF2159D3EA002EF57A /* EditCrossToolBar.swift in Sources */,
 				A0787EBA21563D85002EF57A /* AlbumModel.swift in Sources */,
 				A0787ECA21578CA9002EF57A /* EditPhotoToolBar.swift in Sources */,
 				A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */,
+				A0787EDB2158CC77002EF57A /* EditSliderToolBar.swift in Sources */,
 				A0787ED7215890C8002EF57A /* AlbumManager.swift in Sources */,
 				A0787EC52157363F002EF57A /* MoreAlbumCollectionViewCell.swift in Sources */,
 				A0787EAC215603DF002EF57A /* SaveViewController.swift in Sources */,

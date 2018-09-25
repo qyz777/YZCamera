@@ -10,6 +10,8 @@ import UIKit
 
 class EditPhotoToolBarCell: UICollectionViewCell {
     
+    var isPitch: Bool = false
+    
     class func identifier() -> String {
         return NSStringFromClass(EditPhotoToolBarCell.self)
     }
@@ -43,12 +45,6 @@ class EditPhotoToolBarCell: UICollectionViewCell {
         willSet {
             imageView.image = UIImage.init(named: newValue!["image"]!)
             titleLabel.text = newValue!["title"]
-        }
-    }
-    
-    var isPitch: Bool = false {
-        willSet {
-            imageView.image = newValue == true ? UIImage.init(named: data!["select_image"]!) : UIImage.init(named: data!["image"]!)
         }
     }
     

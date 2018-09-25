@@ -13,7 +13,9 @@ import AudioToolbox
 class EditPhotoViewController: UIViewController,
     EditPhotoToolBarDelegate,
     EditSelectToolBarDelegate,
-    EditOperationBarDelegate
+    EditOperationBarDelegate,
+    EditSliderToolBarDelegate,
+    EditCrossToolBarDelegate
 {
     
     var startCenter: CGPoint = CGPoint.zero
@@ -23,6 +25,8 @@ class EditPhotoViewController: UIViewController,
     var startImageViewSize: CGSize = CGSize.zero
     
     var originalImage: UIImage = UIImage.init()
+    
+    var selectType: PhotoToolBarType = PhotoToolBarType.filter
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -71,6 +75,8 @@ class EditPhotoViewController: UIViewController,
         view.addSubview(toolBar)
         view.addSubview(toolItemBar)
         view.addSubview(operationBar)
+        view.addSubview(sliderBar)
+        view.addSubview(crossBar)
         
         imageView.frame = startFrame
         imageView.center = startCenter
@@ -86,6 +92,18 @@ class EditPhotoViewController: UIViewController,
         }
         
         toolItemBar.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(operationBar.snp.top)
+            make.height.equalTo(70 + 10)
+        }
+        
+        sliderBar.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(operationBar.snp.top)
+            make.height.equalTo(70 + 10)
+        }
+        
+        crossBar.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(operationBar.snp.top)
             make.height.equalTo(70 + 10)
@@ -166,11 +184,18 @@ class EditPhotoViewController: UIViewController,
     
     // MARK: EditPhotoToolBarDelegate
     func didSelectToolItem(type: PhotoToolBarType) {
-        switch type {
+        selectType = type
+        switch selectType {
         case .filter:
             toolItemBar.barType = type
             getFilterArray()
-            showToolItemBar()
+            showMoreToolBar(view: toolItemBar)
+            break
+        case .blur:
+            showMoreToolBar(view: sliderBar)
+            break
+        case .cross:
+            showMoreToolBar(view: crossBar)
             break
         }
     }
@@ -181,6 +206,10 @@ class EditPhotoViewController: UIViewController,
         case .filter:
             imageView.image = FilterManager.shared.getEffectFilter(style: FilterStyleEffect.style(index: index), image: originalImage)
             break
+        case .blur:
+            break
+        case .cross:
+            break
         }
     }
     
@@ -188,24 +217,45 @@ class EditPhotoViewController: UIViewController,
     func imageShouldChange(isSave: Bool) {
         if isSave == true {
             originalImage = imageView.image!
-            hiddenToolItemBar()
-        }else {
-            hiddenToolItemBar()
         }
+        hiddenAllMoreToolBar()
+    }
+    
+    // MARK: EditSliderToolBarDelegate
+    func valueDidChanged(value: Float) {
+        imageView.image = FilterManager.shared.blurFilter(image: originalImage, value: value)
+    }
+    
+    // MARK: EditCrossToolBarDelegate
+    func crossValueDidChange(red: Array<CGFloat>, green: Array<CGFloat>, blue: Array<CGFloat>) {
+        imageView.image = FilterManager.shared.crossFilter(image: originalImage, red: red, green: green, blue: blue)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        hiddenToolItemBar()
+        guard toolBar.isHidden == true  else {
+            return
+        }
+        let point = touches.first?.location(in: view)
+        guard (point?.y)! <= SCREEN_HEIGHT - 114 else {
+            return
+        }
+        hiddenAllMoreToolBar()
     }
     
-    private func showToolItemBar() {
-        toolItemBar.isHidden = false
+    private func hiddenAllMoreToolBar() {
+        hiddenMoreToolBar(view: toolItemBar)
+        hiddenMoreToolBar(view: crossBar)
+        hiddenMoreToolBar(view: sliderBar)
+    }
+    
+    private func showMoreToolBar(view: UIView) {
+        view.isHidden = false
+        view.alpha = 0
         operationBar.isHidden = false
-        toolItemBar.alpha = 0
         operationBar.alpha = 0
         yz_navigationBar?.isHidden = true
         UIView.animate(withDuration: 0.3, animations: {
-            self.toolItemBar.alpha = 1
+            view.alpha = 1
             self.toolBar.alpha = 0
             self.operationBar.alpha = 1
             self.imageView.center = CGPoint.init(x: self.startImageViewCenter.x, y: self.startImageViewCenter.y - 44)
@@ -215,18 +265,18 @@ class EditPhotoViewController: UIViewController,
         }
     }
     
-    private func hiddenToolItemBar() {
+    private func hiddenMoreToolBar(view: UIView) {
         toolBar.isHidden = false
         toolBar.alpha = 0
         self.toolBar.setCellState(indexPath: self.toolBar.lastIndexPath, selected: false)
         UIView.animate(withDuration: 0.3, animations: {
             self.toolBar.alpha = 1
-            self.toolItemBar.alpha = 0
-            self.operationBar.alpha = 1
+            view.alpha = 0
+            self.operationBar.alpha = 0
             self.imageView.center = self.startImageViewCenter
         }) { (complete) in
-            self.toolItemBar.alpha = 1
-            self.toolItemBar.isHidden = true
+            view.isHidden = true
+            view.alpha = 1
             self.operationBar.alpha = 1
             self.operationBar.isHidden = true
             self.yz_navigationBar?.isHidden = false
@@ -268,6 +318,20 @@ class EditPhotoViewController: UIViewController,
         let view = EditOperationBar()
         view.yz_delegate = self
         view.isHidden = true
+        return view
+    }()
+    
+    lazy var sliderBar: EditSliderToolBar = {
+        let view = EditSliderToolBar()
+        view.yz_delegate = self
+        view.isHidden = true
+        return view
+    }()
+    
+    lazy var crossBar: EditCrossToolBar = {
+        let view = EditCrossToolBar()
+        view.isHidden = true
+        view.yz_delegate = self
         return view
     }()
 }

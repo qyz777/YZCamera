@@ -9,7 +9,9 @@
 import UIKit
 
 enum PhotoToolBarType: Int {
-    case filter = 0
+    case filter
+    case blur
+    case cross
 }
 
 protocol EditPhotoToolBarDelegate: class {
@@ -41,7 +43,9 @@ class EditPhotoToolBar: UICollectionView, UICollectionViewDelegate, UICollection
         dataSource = self
         self.backgroundColor = UIColor.white
         register(EditPhotoToolBarCell.self, forCellWithReuseIdentifier: EditPhotoToolBarCell.identifier())
-        dataArray = [["image": "edit_bar_filter", "title": "滤镜", "select_image": "edit_bar_filter_select"]]
+        dataArray = [["image": "edit_bar_filter", "title": "滤镜"],
+                     ["image": "edit_bar_blur", "title": "模糊"],
+                     ["image": "edit_bar_cross", "title": "混合"]]
         reloadData()
     }
     
