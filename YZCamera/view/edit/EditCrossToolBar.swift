@@ -21,6 +21,9 @@ class EditCrossToolBar: UIView {
         addSubview(redSlider)
         addSubview(greenSlider)
         addSubview(blueSlider)
+        addSubview(redLabel)
+        addSubview(greenLabel)
+        addSubview(blueLabel)
         
         redSlider.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(15)
@@ -28,15 +31,30 @@ class EditCrossToolBar: UIView {
             make.width.equalTo(SCREEN_WIDTH / 3 - 30)
         }
         
+        redLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.redSlider)
+            make.bottom.equalTo(self.redSlider.snp.top).offset(10)
+        }
+        
         greenSlider.snp.makeConstraints { (make) in
             make.center.equalTo(self)
             make.width.equalTo(SCREEN_WIDTH / 3 - 30)
+        }
+        
+        greenLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.greenSlider)
+            make.bottom.equalTo(self.greenSlider.snp.top).offset(10)
         }
         
         blueSlider.snp.makeConstraints { (make) in
             make.right.equalTo(self).offset(-15)
             make.centerY.equalTo(self)
             make.width.equalTo(SCREEN_WIDTH / 3 - 30)
+        }
+        
+        blueLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.blueSlider)
+            make.bottom.equalTo(self.blueSlider.snp.top).offset(10)
         }
     }
     
@@ -95,5 +113,32 @@ class EditCrossToolBar: UIView {
         slider.tag = 2
         slider.addTarget(self, action: #selector(sliderDidSlide(slider:)), for: UIControl.Event.valueChanged)
         return slider
+    }()
+    
+    lazy var redLabel: UILabel = {
+        let label = UILabel.init()
+        label.text = "Red"
+        label.textColor = ColorFromRGB(rgbValue: 0x333333)
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        return label
+    }()
+    
+    lazy var greenLabel: UILabel = {
+        let label = UILabel.init()
+        label.text = "Green"
+        label.textColor = ColorFromRGB(rgbValue: 0x333333)
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        return label
+    }()
+    
+    lazy var blueLabel: UILabel = {
+        let label = UILabel.init()
+        label.text = "Blue"
+        label.textColor = ColorFromRGB(rgbValue: 0x333333)
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        return label
     }()
 }

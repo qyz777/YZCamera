@@ -101,6 +101,16 @@ class FilterManager: NSObject {
         return draw(image: filter.outputImage!)
     }
     
+//    锐化 value 0 - 1
+    func sharpenFilter(image: UIImage, value: Float) -> UIImage {
+        let inputImage = CIImage.init(image: image)
+        let filter = CIFilter.init(name: "CISharpenLuminance")!
+        filter.setDefaults()
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        filter.setValue(NSNumber.init(value: value), forKey: "inputSharpness")
+        return draw(image: filter.outputImage!)
+    }
+    
 //    绘制图片
     private func draw(image: CIImage) -> UIImage {
         let contex = CIContext.init()

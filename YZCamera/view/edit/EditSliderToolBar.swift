@@ -39,7 +39,7 @@ class EditSliderToolBar: UIView {
     lazy var slider: UISlider = {
         let slider = UISlider.init()
         slider.minimumValue = 0
-        slider.maximumValue = 20
+        slider.maximumValue = 5
         slider.value = 0
         slider.isContinuous = true
         slider.addTarget(self, action: #selector(sliderValueChanged(sender:)), for: UIControl.Event.valueChanged)

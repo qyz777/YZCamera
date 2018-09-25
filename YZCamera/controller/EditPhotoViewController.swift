@@ -197,6 +197,9 @@ class EditPhotoViewController: UIViewController,
         case .cross:
             showMoreToolBar(view: crossBar)
             break
+        case .sharpen:
+            showMoreToolBar(view: sliderBar)
+            break
         }
     }
     
@@ -210,6 +213,8 @@ class EditPhotoViewController: UIViewController,
             break
         case .cross:
             break
+        case .sharpen:
+            break
         }
     }
     
@@ -217,13 +222,19 @@ class EditPhotoViewController: UIViewController,
     func imageShouldChange(isSave: Bool) {
         if isSave == true {
             originalImage = imageView.image!
+        }else {
+            imageView.image = originalImage
         }
         hiddenAllMoreToolBar()
     }
     
     // MARK: EditSliderToolBarDelegate
     func valueDidChanged(value: Float) {
-        imageView.image = FilterManager.shared.blurFilter(image: originalImage, value: value)
+        if self.selectType == PhotoToolBarType.blur {
+            imageView.image = FilterManager.shared.blurFilter(image: originalImage, value: value)
+        }else if self.selectType == PhotoToolBarType.sharpen {
+            imageView.image = FilterManager.shared.sharpenFilter(image: originalImage, value: value)
+        }
     }
     
     // MARK: EditCrossToolBarDelegate
