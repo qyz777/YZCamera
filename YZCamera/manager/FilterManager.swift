@@ -48,6 +48,30 @@ enum FilterStyleEffect: String, CaseIterable {
     }
 }
 
+enum GPUFilterStyle: String, CaseIterable {
+    case sketch = "GPUImageSketchFilter"
+    case toon = "GPUImageToonFilter"
+    case smoothToon = "GPUImageSmoothToonFilter"
+    case emboss = "GPUImageEmbossFilter"
+    case dot = "GPUImagePolkaDotFilter"
+    
+    var title: String {
+        switch self {
+        case .sketch: return "sketch"
+        case .toon: return "toon"
+        case .smoothToon: return "sToon"
+        case .emboss: return "emboss"
+        case .dot: return "dot"
+        }
+    }
+    
+    var instance: GPUImageOutput {
+        let filterClass: AnyClass = NSClassFromString(self.rawValue)!
+        let realClass = filterClass as! GPUImageOutput.Type
+        return realClass.init()
+    }
+}
+
 class FilterManager: NSObject {
     static let shared = FilterManager()
     

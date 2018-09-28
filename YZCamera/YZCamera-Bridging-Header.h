@@ -3,3 +3,4 @@
 //
 
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "GPUImage.h"

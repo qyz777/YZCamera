@@ -11,6 +11,7 @@ import UIKit
 @objc protocol MainBottomViewDelegate: class {
     @objc func photoBtnDidClick()
     @objc func shouldPresentPhotoAlbum()
+    @objc func filterViewShouldShow()
 }
 
 class MainBottomView: UIView {
@@ -32,6 +33,7 @@ class MainBottomView: UIView {
         addSubview(btnBottomView)
         addSubview(photoBtn)
         addSubview(albumBtn)
+        addSubview(filterBtn)
         
         btnBottomView.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 80, height: 80))
@@ -47,6 +49,11 @@ class MainBottomView: UIView {
             make.right.equalTo(self).offset(-30)
             make.centerY.equalTo(photoBtn)
         }
+        
+        filterBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(self).offset(30)
+            make.centerY.equalTo(photoBtn)
+        }
     }
     
     @objc func photoBtnDidClicked() {
@@ -55,6 +62,10 @@ class MainBottomView: UIView {
     
     @objc func albumBtnDidClicked() {
         yz_delegate?.shouldPresentPhotoAlbum()
+    }
+    
+    @objc func filterBinDidClicked() {
+        yz_delegate?.filterViewShouldShow()
     }
     
     lazy var photoBtn: UIButton = {
@@ -83,6 +94,13 @@ class MainBottomView: UIView {
         let btn = UIButton.init(type: UIButton.ButtonType.custom)
         btn.setImage(UIImage.init(named: "main_photo_album_btn"), for: UIControl.State.normal)
         btn.addTarget(self, action: #selector(albumBtnDidClicked), for: UIControl.Event.touchUpInside)
+        return btn
+    }()
+    
+    lazy var filterBtn: UIButton = {
+        let btn = UIButton.init(type: UIButton.ButtonType.custom)
+        btn.setImage(UIImage.init(named: "main_filter_btn"), for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(filterBinDidClicked), for: UIControl.Event.touchUpInside)
         return btn
     }()
 }
