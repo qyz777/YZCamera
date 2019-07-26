@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+extension YZNamespace where Base: UIImage {
     
     
     /// 等比缩放图片
@@ -16,7 +16,7 @@ extension UIImage {
     /// - Parameter scale: 缩放程度 scale >= 0
     /// - Returns: UIImage
     func scaleImage(scale: CGFloat) -> UIImage {
-        let reSize = CGSize.init(width: self.size.width * scale, height: self.size.height * scale)
+        let reSize = CGSize.init(width: base.size.width * scale, height: base.size.height * scale)
         return reSizeImage(reSize: reSize)
     }
     
@@ -25,9 +25,9 @@ extension UIImage {
     ///
     /// - Returns: CGImage
     func convertToCGImage() -> CGImage {
-        let cgImage = self.cgImage
+        let cgImage = base.cgImage
         if cgImage == nil {
-            let ciImage = self.ciImage
+            let ciImage = base.ciImage
             let ciContext = CIContext.init()
             return ciContext.createCGImage(ciImage!, from: ciImage!.extent)!
         }else {
@@ -37,7 +37,7 @@ extension UIImage {
     
     private func reSizeImage(reSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale)
-        self.draw(in: CGRect.init(x: 0, y: 0, width: reSize.width, height: reSize.height))
+        base.draw(in: CGRect.init(x: 0, y: 0, width: reSize.width, height: reSize.height))
         let reSizeImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return reSizeImage

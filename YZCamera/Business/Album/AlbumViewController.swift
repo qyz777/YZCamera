@@ -8,13 +8,12 @@
 
 import UIKit
 
-class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AlbumViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var dataArray: Array<AlbumModel> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar()
         initView()
         loadImage()
     }
@@ -23,12 +22,12 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         view.backgroundColor = UIColor.white
         collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.identifier())
         view.addSubview(collectionView)
-        yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
-        yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
-        yz_navigationBar?.titleLabel.text = "相册"
+        yz.navigationBar.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
+        yz.navigationBar.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz.navigationBar.titleLabel.text = "相册"
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(yz_navigationBar!.snp.bottom)
+            make.top.equalTo(self.yz.navigationBar.snp.bottom)
             make.right.left.bottom.equalTo(view)
         }
     }

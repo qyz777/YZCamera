@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import AudioToolbox
 
-class EditPhotoViewController: UIViewController,
+class EditPhotoViewController: BaseViewController,
     EditPhotoToolBarDelegate,
     EditSelectToolBarDelegate,
     EditOperationBarDelegate,
@@ -63,14 +63,13 @@ class EditPhotoViewController: UIViewController,
     }
     
     func initView() {
-        navigationBar()
-        yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
-        yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
-        yz_navigationBar?.rightBtn.setImage(UIImage.init(named: "edit_save_btn"), for: UIControl.State.normal)
-        yz_navigationBar?.rightBtn.isHidden = false
-        yz_navigationBar?.rightBtn.addTarget(self, action: #selector(saveBtnDidClicked), for: UIControl.Event.touchUpInside)
-        yz_navigationBar?.titleLabel.text = "编辑"
-        yz_navigationBar?.layer.zPosition = 99
+        yz.navigationBar.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
+        yz.navigationBar.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz.navigationBar.rightBtn.setImage(UIImage.init(named: "edit_save_btn"), for: UIControl.State.normal)
+        yz.navigationBar.rightBtn.isHidden = false
+        yz.navigationBar.rightBtn.addTarget(self, action: #selector(saveBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz.navigationBar.titleLabel.text = "编辑"
+        yz.navigationBar.layer.zPosition = 99
         view.addSubview(imageView)
         view.addSubview(toolBar)
         view.addSubview(toolItemBar)
@@ -264,7 +263,7 @@ class EditPhotoViewController: UIViewController,
         view.alpha = 0
         operationBar.isHidden = false
         operationBar.alpha = 0
-        yz_navigationBar?.isHidden = true
+        yz.navigationBar.isHidden = true
         UIView.animate(withDuration: 0.3, animations: {
             view.alpha = 1
             self.toolBar.alpha = 0
@@ -290,7 +289,7 @@ class EditPhotoViewController: UIViewController,
             view.alpha = 1
             self.operationBar.alpha = 1
             self.operationBar.isHidden = true
-            self.yz_navigationBar?.isHidden = false
+            self.yz.navigationBar.isHidden = false
         }
     }
     

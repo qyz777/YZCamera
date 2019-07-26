@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class MoreAlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MoreAlbumViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var dataArray: Array<UIImage> = []
 
@@ -19,13 +19,12 @@ class MoreAlbumViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func initView() {
-        navigationBar()
-        yz_navigationBar?.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
-        yz_navigationBar?.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
-        yz_navigationBar?.titleLabel.text = model?.albumName
+        yz.navigationBar.leftBtn.setImage(UIImage.init(named: "back_btn"), for: UIControl.State.normal)
+        yz.navigationBar.leftBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
+        yz.navigationBar.titleLabel.text = model?.albumName
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(yz_navigationBar?.snp.bottom ?? view.snp.bottom)
+            make.top.equalTo(self.yz.navigationBar.snp.bottom)
             make.left.right.bottom.equalTo(view)
         }
         

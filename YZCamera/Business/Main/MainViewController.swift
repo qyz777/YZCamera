@@ -199,9 +199,9 @@ class MainViewController: UIViewController,
         guard CMSampleBufferIsValid(buffer) == true else { return nil }
         let imageBuffer = CMSampleBufferGetImageBuffer(buffer)
         let ciImage: CIImage = CIImage.init(cvPixelBuffer: imageBuffer!)
-        let image = UIImage.init(ciImage: ciImage).scaleImage(scale: 0.1)
+        let image = UIImage.init(ciImage: ciImage).yz.scaleImage(scale: 0.1)
         let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.width)
-        let cgImage = image.convertToCGImage()
+        let cgImage = image.yz.convertToCGImage()
         guard let cgImageCorpped = cgImage.cropping(to: rect) else { return nil }
         let newImage = UIImage.init(cgImage: cgImageCorpped, scale: 1, orientation: UIImage.Orientation.right)
         return newImage

@@ -1,5 +1,5 @@
 //
-//  YZNavigationBar.swift
+//  NavigationBar.swift
 //  YZCamera
 //
 //  Created by Q YiZhong on 2018/9/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZNavigationBar: UIView {
+class NavigationBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

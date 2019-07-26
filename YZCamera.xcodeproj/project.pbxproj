@@ -10,6 +10,9 @@
 		6FF7D5BF70018FE9CB3BE9D8 /* Pods_YZCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128FA2431E82D659A502726 /* Pods_YZCamera.framework */; };
 		A02381C6215DFB0A00D7C81C /* UIImage+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02381C5215DFB0A00D7C81C /* UIImage+Utility.swift */; };
 		A02C8D5D22EA927E0058D588 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D5C22EA927E0058D588 /* Define.swift */; };
+		A02C8D5F22EA935F0058D588 /* YZNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D5E22EA935F0058D588 /* YZNameSpace.swift */; };
+		A02C8D6A22EA95290058D588 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D6922EA95290058D588 /* BaseViewController.swift */; };
+		A02C8D6D22EA96D30058D588 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D6C22EA96D30058D588 /* Debug.swift */; };
 		A058027A215B1B8C0049E60C /* MainFilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */; };
 		A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E8921549211002EF57A /* AppDelegate.swift */; };
 		A0787E8F21549211002EF57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E8D21549211002EF57A /* Main.storyboard */; };
@@ -24,8 +27,7 @@
 		A0787EB721562627002EF57A /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EB621562627002EF57A /* AlbumCollectionViewCell.swift */; };
 		A0787EBA21563D85002EF57A /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EB921563D85002EF57A /* AlbumModel.swift */; };
 		A0787EBC21566772002EF57A /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */; };
-		A0787EBE21566CB4002EF57A /* UIViewController+KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EBD21566CB4002EF57A /* UIViewController+KEY.swift */; };
-		A0787EC121566DC7002EF57A /* YZNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EC021566DC7002EF57A /* YZNavigationBar.swift */; };
+		A0787EC121566DC7002EF57A /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EC021566DC7002EF57A /* NavigationBar.swift */; };
 		A0787EC321573284002EF57A /* MoreAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EC221573284002EF57A /* MoreAlbumViewController.swift */; };
 		A0787EC52157363F002EF57A /* MoreAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EC42157363F002EF57A /* MoreAlbumCollectionViewCell.swift */; };
 		A0787EC7215764AD002EF57A /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EC6215764AD002EF57A /* EditPhotoViewController.swift */; };
@@ -46,6 +48,9 @@
 		5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.release.xcconfig"; sourceTree = "<group>"; };
 		A02381C5215DFB0A00D7C81C /* UIImage+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utility.swift"; sourceTree = "<group>"; };
 		A02C8D5C22EA927E0058D588 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		A02C8D5E22EA935F0058D588 /* YZNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YZNameSpace.swift; sourceTree = "<group>"; };
+		A02C8D6922EA95290058D588 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A02C8D6C22EA96D30058D588 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewCell.swift; sourceTree = "<group>"; };
 		A0787E8621549211002EF57A /* YZCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0787E8921549211002EF57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,8 +68,7 @@
 		A0787EB621562627002EF57A /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0787EB921563D85002EF57A /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
-		A0787EBD21566CB4002EF57A /* UIViewController+KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KEY.swift"; sourceTree = "<group>"; };
-		A0787EC021566DC7002EF57A /* YZNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YZNavigationBar.swift; sourceTree = "<group>"; };
+		A0787EC021566DC7002EF57A /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		A0787EC221573284002EF57A /* MoreAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAlbumViewController.swift; sourceTree = "<group>"; };
 		A0787EC42157363F002EF57A /* MoreAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0787EC6215764AD002EF57A /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
@@ -104,20 +108,126 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A02381C4215DFAD400D7C81C /* image */ = {
+		A02C8D5B22EA92710058D588 /* YZUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D6E22EA97E50058D588 /* UIImage */,
+				A02C8D6322EA93D80058D588 /* UIViewController */,
+				A02C8D5C22EA927E0058D588 /* Define.swift */,
+				A02C8D5E22EA935F0058D588 /* YZNameSpace.swift */,
+				A02C8D6C22EA96D30058D588 /* Debug.swift */,
+			);
+			path = YZUIKit;
+			sourceTree = "<group>";
+		};
+		A02C8D6322EA93D80058D588 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */,
+				A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		A02C8D6422EA95040058D588 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D7322EA98B40058D588 /* Album */,
+				A02C8D7122EA989D0058D588 /* Edit */,
+				A02C8D6F22EA98840058D588 /* Main */,
+				A0787ECD2157B26E002EF57A /* Manager */,
+				A0787EB821563D5C002EF57A /* model */,
+				A02C8D6B22EA95610058D588 /* Navigation */,
+				A02C8D6522EA95110058D588 /* Base */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		A02C8D6522EA95110058D588 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D6922EA95290058D588 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A02C8D6B22EA95610058D588 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EC021566DC7002EF57A /* NavigationBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A02C8D6E22EA97E50058D588 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
 				A02381C5215DFB0A00D7C81C /* UIImage+Utility.swift */,
 			);
-			path = image;
+			path = UIImage;
 			sourceTree = "<group>";
 		};
-		A02C8D5B22EA92710058D588 /* YZUIKit */ = {
+		A02C8D6F22EA98840058D588 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A02C8D5C22EA927E0058D588 /* Define.swift */,
+				A02C8D7022EA988E0058D588 /* View */,
+				A0787E9C2154928E002EF57A /* MainViewController.swift */,
+				A0787EAB215603DF002EF57A /* SaveViewController.swift */,
 			);
-			path = YZUIKit;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A02C8D7022EA988E0058D588 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EA62154E719002EF57A /* MainBottomView.swift */,
+				A0787EA821552D18002EF57A /* MainTopView.swift */,
+				A0787EE0215A6B02002EF57A /* MainFilterView.swift */,
+				A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A02C8D7122EA989D0058D588 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D7222EA98A70058D588 /* View */,
+				A0787EC6215764AD002EF57A /* EditPhotoViewController.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		A02C8D7222EA98A70058D588 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EC921578CA9002EF57A /* EditPhotoToolBar.swift */,
+				A0787ECB21578E75002EF57A /* EditPhotoToolBarCell.swift */,
+				A0787ED0215872B6002EF57A /* EditSelectToolBar.swift */,
+				A0787ED221587358002EF57A /* EditSelectToolBarCell.swift */,
+				A0787ED821589B6F002EF57A /* EditOperationBar.swift */,
+				A0787EDA2158CC76002EF57A /* EditSliderToolBar.swift */,
+				A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A02C8D7322EA98B40058D588 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D7422EA98D20058D588 /* View */,
+				A0787EB4215624B1002EF57A /* AlbumViewController.swift */,
+				A0787EC221573284002EF57A /* MoreAlbumViewController.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		A02C8D7422EA98D20058D588 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0787EB621562627002EF57A /* AlbumCollectionViewCell.swift */,
+				A0787EC42157363F002EF57A /* MoreAlbumCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A0787E7D21549211002EF57A = {
@@ -142,11 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				A02C8D5B22EA92710058D588 /* YZUIKit */,
-				A0787EA32154D7C5002EF57A /* expansion */,
-				A0787EB821563D5C002EF57A /* model */,
-				A0787E9E21549CCA002EF57A /* view */,
-				A0787E9B2154927D002EF57A /* controller */,
-				A0787ECD2157B26E002EF57A /* manager */,
+				A02C8D6422EA95040058D588 /* Business */,
 				A0787E8921549211002EF57A /* AppDelegate.swift */,
 				A0787E8D21549211002EF57A /* Main.storyboard */,
 				A0787E9021549214002EF57A /* Assets.xcassets */,
@@ -155,60 +261,6 @@
 				A0787EAE21560E07002EF57A /* YZCamera-Bridging-Header.h */,
 			);
 			path = YZCamera;
-			sourceTree = "<group>";
-		};
-		A0787E9B2154927D002EF57A /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				A0787E9C2154928E002EF57A /* MainViewController.swift */,
-				A0787EAB215603DF002EF57A /* SaveViewController.swift */,
-				A0787EB4215624B1002EF57A /* AlbumViewController.swift */,
-				A0787EC221573284002EF57A /* MoreAlbumViewController.swift */,
-				A0787EC6215764AD002EF57A /* EditPhotoViewController.swift */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		A0787E9E21549CCA002EF57A /* view */ = {
-			isa = PBXGroup;
-			children = (
-				A0787EC821578C7F002EF57A /* edit */,
-				A0787EAD21560429002EF57A /* album */,
-				A0787EAA215603BA002EF57A /* main */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		A0787EA32154D7C5002EF57A /* expansion */ = {
-			isa = PBXGroup;
-			children = (
-				A02381C4215DFAD400D7C81C /* image */,
-				A0787EBF21566DAD002EF57A /* navigationBar */,
-				A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */,
-				A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */,
-				A0787EBD21566CB4002EF57A /* UIViewController+KEY.swift */,
-			);
-			path = expansion;
-			sourceTree = "<group>";
-		};
-		A0787EAA215603BA002EF57A /* main */ = {
-			isa = PBXGroup;
-			children = (
-				A0787EA62154E719002EF57A /* MainBottomView.swift */,
-				A0787EA821552D18002EF57A /* MainTopView.swift */,
-				A0787EE0215A6B02002EF57A /* MainFilterView.swift */,
-				A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */,
-			);
-			path = main;
-			sourceTree = "<group>";
-		};
-		A0787EAD21560429002EF57A /* album */ = {
-			isa = PBXGroup;
-			children = (
-				A0787EB621562627002EF57A /* AlbumCollectionViewCell.swift */,
-				A0787EC42157363F002EF57A /* MoreAlbumCollectionViewCell.swift */,
-			);
-			path = album;
 			sourceTree = "<group>";
 		};
 		A0787EB821563D5C002EF57A /* model */ = {
@@ -220,35 +272,13 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		A0787EBF21566DAD002EF57A /* navigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				A0787EC021566DC7002EF57A /* YZNavigationBar.swift */,
-			);
-			path = navigationBar;
-			sourceTree = "<group>";
-		};
-		A0787EC821578C7F002EF57A /* edit */ = {
-			isa = PBXGroup;
-			children = (
-				A0787EC921578CA9002EF57A /* EditPhotoToolBar.swift */,
-				A0787ECB21578E75002EF57A /* EditPhotoToolBarCell.swift */,
-				A0787ED0215872B6002EF57A /* EditSelectToolBar.swift */,
-				A0787ED221587358002EF57A /* EditSelectToolBarCell.swift */,
-				A0787ED821589B6F002EF57A /* EditOperationBar.swift */,
-				A0787EDA2158CC76002EF57A /* EditSliderToolBar.swift */,
-				A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */,
-			);
-			path = edit;
-			sourceTree = "<group>";
-		};
-		A0787ECD2157B26E002EF57A /* manager */ = {
+		A0787ECD2157B26E002EF57A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				A0787ECE2157B29E002EF57A /* FilterManager.swift */,
 				A0787ED6215890C8002EF57A /* AlbumManager.swift */,
 			);
-			path = manager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		EB786A48D584A452634CD186 /* Frameworks */ = {
@@ -380,11 +410,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02C8D6D22EA96D30058D588 /* Debug.swift in Sources */,
 				A0787ED321587358002EF57A /* EditSelectToolBarCell.swift in Sources */,
 				A0787ED521587478002EF57A /* FilterModel.swift in Sources */,
 				A0787EB721562627002EF57A /* AlbumCollectionViewCell.swift in Sources */,
 				A0787ECF2157B29E002EF57A /* FilterManager.swift in Sources */,
 				A0787EDF2159D3EA002EF57A /* EditCrossToolBar.swift in Sources */,
+				A02C8D6A22EA95290058D588 /* BaseViewController.swift in Sources */,
 				A0787EBA21563D85002EF57A /* AlbumModel.swift in Sources */,
 				A0787ECA21578CA9002EF57A /* EditPhotoToolBar.swift in Sources */,
 				A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */,
@@ -396,6 +428,7 @@
 				A0787ED1215872B6002EF57A /* EditSelectToolBar.swift in Sources */,
 				A02C8D5D22EA927E0058D588 /* Define.swift in Sources */,
 				A0787EBC21566772002EF57A /* UIViewController+NavigationBar.swift in Sources */,
+				A02C8D5F22EA935F0058D588 /* YZNameSpace.swift in Sources */,
 				A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */,
 				A0787ED921589B6F002EF57A /* EditOperationBar.swift in Sources */,
 				A0787EC7215764AD002EF57A /* EditPhotoViewController.swift in Sources */,
@@ -405,9 +438,8 @@
 				A0787EC321573284002EF57A /* MoreAlbumViewController.swift in Sources */,
 				A0787EE1215A6B02002EF57A /* MainFilterView.swift in Sources */,
 				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
-				A0787EBE21566CB4002EF57A /* UIViewController+KEY.swift in Sources */,
 				A058027A215B1B8C0049E60C /* MainFilterViewCell.swift in Sources */,
-				A0787EC121566DC7002EF57A /* YZNavigationBar.swift in Sources */,
+				A0787EC121566DC7002EF57A /* NavigationBar.swift in Sources */,
 				A0787EA921552D18002EF57A /* MainTopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

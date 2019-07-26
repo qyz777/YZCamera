@@ -9,22 +9,20 @@
 import UIKit
 import MBProgressHUD
 
-let keyWindow = UIApplication.shared.keyWindow
-
-extension UIViewController {
+extension YZNamespace where Base: UIViewController {
     
-    var HUD: MBProgressHUD? {
+    var HUD: MBProgressHUD {
         get {
-            return objc_getAssociatedObject(self, RuntimeKey.HUDKey!) as? MBProgressHUD
+            return objc_getAssociatedObject(self, #function) as! MBProgressHUD
         }
         set {
-            objc_setAssociatedObject(self, RuntimeKey.HUDKey!, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, #function, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     func showToast(string: String) {
-        let hud = MBProgressHUD.init(view: keyWindow!)
-        keyWindow?.addSubview(hud)
+        let hud = MBProgressHUD.init(view: UIApplication.shared.keyWindow!)
+        UIApplication.shared.keyWindow?.addSubview(hud)
         hud.label.text = string
         DispatchQueue.main.async {
             hud.show(animated: true)
