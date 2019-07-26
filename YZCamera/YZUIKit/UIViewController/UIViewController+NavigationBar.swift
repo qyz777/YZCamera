@@ -8,22 +8,25 @@
 
 import UIKit
 
+private var key = "YZCamera.NavigationBar"
+
 extension YZNamespace where Base: UIViewController {
     
     var navigationBar: NavigationBar {
         get {
-            return objc_getAssociatedObject(self, #function) as! NavigationBar
+            return objc_getAssociatedObject(base, &key) as! NavigationBar
         }
         set {
-            objc_setAssociatedObject(self, #function, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(base, &key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     func setupNavigationBar() {
         base.navigationController?.navigationBar.isHidden = true
-        navigationBar = NavigationBar(frame: CGRect.zero)
-        base.view.addSubview(navigationBar)
-        navigationBar.snp.makeConstraints { (make) in
+        base.yz.navigationBar = NavigationBar(frame: CGRect.zero)
+        YZLog(base.yz.navigationBar)
+        base.view.addSubview(base.yz.navigationBar)
+        base.yz.navigationBar.snp.makeConstraints { (make) in
             make.top.right.left.equalTo(base.view)
             make.height.equalTo(64)
         }

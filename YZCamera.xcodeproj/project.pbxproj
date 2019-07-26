@@ -13,6 +13,7 @@
 		A02C8D5F22EA935F0058D588 /* YZNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D5E22EA935F0058D588 /* YZNameSpace.swift */; };
 		A02C8D6A22EA95290058D588 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D6922EA95290058D588 /* BaseViewController.swift */; };
 		A02C8D6D22EA96D30058D588 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D6C22EA96D30058D588 /* Debug.swift */; };
+		A02C8D7622EA9B000058D588 /* UIViewController+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D7522EA9B000058D588 /* UIViewController+Custom.swift */; };
 		A058027A215B1B8C0049E60C /* MainFilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */; };
 		A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E8921549211002EF57A /* AppDelegate.swift */; };
 		A0787E8F21549211002EF57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E8D21549211002EF57A /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		A02C8D5E22EA935F0058D588 /* YZNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YZNameSpace.swift; sourceTree = "<group>"; };
 		A02C8D6922EA95290058D588 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A02C8D6C22EA96D30058D588 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		A02C8D7522EA9B000058D588 /* UIViewController+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Custom.swift"; sourceTree = "<group>"; };
 		A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewCell.swift; sourceTree = "<group>"; };
 		A0787E8621549211002EF57A /* YZCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0787E8921549211002EF57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */,
 				A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */,
+				A02C8D7522EA9B000058D588 /* UIViewController+Custom.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				A0787EB5215624B1002EF57A /* AlbumViewController.swift in Sources */,
 				A0787EC321573284002EF57A /* MoreAlbumViewController.swift in Sources */,
 				A0787EE1215A6B02002EF57A /* MainFilterView.swift in Sources */,
+				A02C8D7622EA9B000058D588 /* UIViewController+Custom.swift in Sources */,
 				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
 				A058027A215B1B8C0049E60C /* MainFilterViewCell.swift in Sources */,
 				A0787EC121566DC7002EF57A /* NavigationBar.swift in Sources */,

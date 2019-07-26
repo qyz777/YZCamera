@@ -12,7 +12,7 @@ class NavigationBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        backgroundColor = .white
         addSubview(leftBtn)
         addSubview(titleLabel)
         addSubview(rightBtn)
@@ -33,7 +33,7 @@ class NavigationBar: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     lazy var leftBtn: UIButton = {

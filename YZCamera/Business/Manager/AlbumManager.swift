@@ -95,9 +95,9 @@ class AlbumManager: NSObject {
     
     @objc private func save(image: UIImage, didFinishWithError error: Error?, contentInfo: AnyObject) {
         if error != nil {
-            UIApplication.shared.keyWindow?.rootViewController?.yz.showToast(string: "保存失败")
-        }else {
-            UIApplication.shared.keyWindow?.rootViewController?.yz.showToast(string: "保存成功")
+            UIViewController.yz.current()?.yz.showToast("保存失败")
+        } else {
+            UIViewController.yz.current()?.yz.showToast("保存成功")
         }
     }
 }

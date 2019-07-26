@@ -63,24 +63,42 @@ class MainViewController: UIViewController,
     
     func cameraConfig() -> Void {
         device = AVCaptureDevice.default(for: AVMediaType.video)
-        input = try? AVCaptureDeviceInput.init(device: device!)
-        if (input != nil) {
-            let outputSettings = AVCapturePhotoSettings.init(format: [AVVideoCodecKey : AVVideoCodecJPEG])
-            photoOutput = AVCapturePhotoOutput.init()
+        guard device != nil else {
+            UIViewController.yz.current()?.yz.showToast("启动相机失败")
+            return
+        }
+        do {
+            input = try AVCaptureDeviceInput(device: device!)
+            session = AVCaptureSession()
+            guard input != nil || session != nil else {
+                UIViewController.yz.current()?.yz.showToast("启动相机失败")
+                return
+            }
+            
+            if session!.canAddInput(input!) {
+                session!.addInput(input!)
+            }
+            
+            let outputSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecJPEG])
+            photoOutput = AVCapturePhotoOutput()
             photoOutput?.photoSettingsForSceneMonitoring = outputSettings
             
-            videoOutput = AVCaptureVideoDataOutput.init()
-            let queue = DispatchQueue.init(label: "YZCamera.video")
+            if session!.canAddOutput(photoOutput!) {
+                session!.addOutput(photoOutput!)
+            }
+            
+            videoOutput = AVCaptureVideoDataOutput()
+            let queue = DispatchQueue(label: "YZCamera.video")
             videoOutput?.setSampleBufferDelegate(self, queue: queue)
             
-            session = AVCaptureSession.init()
-            session?.addInput(input!)
-            session?.addOutput(photoOutput!)
-            previewLayer = AVCaptureVideoPreviewLayer.init(session: session!)
-            previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            previewLayer?.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 180)
+            previewLayer = AVCaptureVideoPreviewLayer(session: session!)
+            previewLayer?.videoGravity = .resizeAspectFill
+            previewLayer?.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 180)
             backView.layer.insertSublayer(previewLayer!, at: 0)
+            
             session?.startRunning()
+        } catch {
+            YZLog("相机输入失败: \(error.localizedDescription)")
         }
     }
     
@@ -91,7 +109,7 @@ class MainViewController: UIViewController,
     }
     
     func shouldPresentPhotoAlbum() {
-        let nav = UINavigationController.init(rootViewController: AlbumViewController())
+        let nav = UINavigationController(rootViewController: AlbumViewController())
         present(nav, animated: true, completion: nil)
     }
     
@@ -131,19 +149,19 @@ class MainViewController: UIViewController,
     func cameraShouldSwitch() {
         let inUseDevide = inUseCamera()
         if inUseDevide != nil {
-            let deviceInput = try? AVCaptureDeviceInput.init(device: inUseDevide!)
+            let deviceInput = try? AVCaptureDeviceInput(device: inUseDevide!)
             session?.beginConfiguration()
             session?.removeInput(input!)
             if (session?.canAddInput(deviceInput!))! {
                 session?.addInput(deviceInput!)
                 device = inUseDevide
                 input = deviceInput
-            }else {
+            } else {
                 session?.addInput(input!)
             }
             session?.commitConfiguration()
-        }else {
-            print("摄像头切换错误")
+        } else {
+            YZLog("摄像头切换错误")
         }
     }
     
@@ -189,7 +207,7 @@ class MainViewController: UIViewController,
         let device: AVCaptureDevice?
         if self.device?.position == AVCaptureDevice.Position.back {
             device = cameraWith(position: AVCaptureDevice.Position.front) ?? nil
-        }else {
+        } else {
             device = cameraWith(position: AVCaptureDevice.Position.back) ?? nil
         }
         return device
@@ -209,18 +227,18 @@ class MainViewController: UIViewController,
     
     // MARK: lazy
     lazy var backView: UIView = {
-        let view = UIView.init()
+        let view = UIView()
         return view
     }()
     
     lazy var bottomView: MainBottomView = {
-        let view = MainBottomView.init()
+        let view = MainBottomView()
         view.yz_delegate = self
         return view
     }()
     
     lazy var topView: MainTopView = {
-        let view = MainTopView.init()
+        let view = MainTopView()
         view.yz_delegate = self
         return view
     }()

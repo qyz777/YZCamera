@@ -20,11 +20,10 @@ extension YZNamespace where Base: UIViewController {
         }
     }
     
-    func showToast(string: String) {
-        let hud = MBProgressHUD.init(view: UIApplication.shared.keyWindow!)
-        UIApplication.shared.keyWindow?.addSubview(hud)
-        hud.label.text = string
+    func showToast(_ string: String) {
         DispatchQueue.main.async {
+            let hud = MBProgressHUD.init(view: self.base.view)
+            hud.label.text = string
             hud.show(animated: true)
             hud.mode = MBProgressHUDMode.text
             hud.bezelView.style = MBProgressHUDBackgroundStyle.solidColor
