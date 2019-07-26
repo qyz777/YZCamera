@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DC4F970606666B106B70228 /* libPods-YZCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */; };
+		6FF7D5BF70018FE9CB3BE9D8 /* Pods_YZCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128FA2431E82D659A502726 /* Pods_YZCamera.framework */; };
 		A02381C6215DFB0A00D7C81C /* UIImage+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02381C5215DFB0A00D7C81C /* UIImage+Utility.swift */; };
+		A02C8D5D22EA927E0058D588 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C8D5C22EA927E0058D588 /* Define.swift */; };
 		A058027A215B1B8C0049E60C /* MainFilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */; };
 		A0787E8A21549211002EF57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E8921549211002EF57A /* AppDelegate.swift */; };
 		A0787E8F21549211002EF57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E8D21549211002EF57A /* Main.storyboard */; };
 		A0787E9121549214002EF57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9021549214002EF57A /* Assets.xcassets */; };
 		A0787E9421549214002EF57A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0787E9221549214002EF57A /* LaunchScreen.storyboard */; };
 		A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787E9C2154928E002EF57A /* MainViewController.swift */; };
-		A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA42154D811002EF57A /* GlobalVariable.swift */; };
 		A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA62154E719002EF57A /* MainBottomView.swift */; };
 		A0787EA921552D18002EF57A /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EA821552D18002EF57A /* MainTopView.swift */; };
 		A0787EAC215603DF002EF57A /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0787EAB215603DF002EF57A /* SaveViewController.swift */; };
@@ -44,8 +44,8 @@
 
 /* Begin PBXFileReference section */
 		5361778E5ADB961D0D5D5C65 /* Pods-YZCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.release.xcconfig"; sourceTree = "<group>"; };
-		91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YZCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02381C5215DFB0A00D7C81C /* UIImage+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utility.swift"; sourceTree = "<group>"; };
+		A02C8D5C22EA927E0058D588 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		A0580279215B1B8C0049E60C /* MainFilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewCell.swift; sourceTree = "<group>"; };
 		A0787E8621549211002EF57A /* YZCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0787E8921549211002EF57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +54,6 @@
 		A0787E9321549214002EF57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0787E9521549214002EF57A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0787E9C2154928E002EF57A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A0787EA42154D811002EF57A /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		A0787EA62154E719002EF57A /* MainBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomView.swift; sourceTree = "<group>"; };
 		A0787EA821552D18002EF57A /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		A0787EAB215603DF002EF57A /* SaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		A0787EDE2159D3EA002EF57A /* EditCrossToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCrossToolBar.swift; sourceTree = "<group>"; };
 		A0787EE0215A6B02002EF57A /* MainFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterView.swift; sourceTree = "<group>"; };
 		EDD4B9BF45883A7337985EC6 /* Pods-YZCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		F128FA2431E82D659A502726 /* Pods_YZCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YZCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC4F970606666B106B70228 /* libPods-YZCamera.a in Frameworks */,
+				6FF7D5BF70018FE9CB3BE9D8 /* Pods_YZCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +112,14 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		A02C8D5B22EA92710058D588 /* YZUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A02C8D5C22EA927E0058D588 /* Define.swift */,
+			);
+			path = YZUIKit;
+			sourceTree = "<group>";
+		};
 		A0787E7D21549211002EF57A = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +141,7 @@
 		A0787E8821549211002EF57A /* YZCamera */ = {
 			isa = PBXGroup;
 			children = (
+				A02C8D5B22EA92710058D588 /* YZUIKit */,
 				A0787EA32154D7C5002EF57A /* expansion */,
 				A0787EB821563D5C002EF57A /* model */,
 				A0787E9E21549CCA002EF57A /* view */,
@@ -175,7 +184,6 @@
 			children = (
 				A02381C4215DFAD400D7C81C /* image */,
 				A0787EBF21566DAD002EF57A /* navigationBar */,
-				A0787EA42154D811002EF57A /* GlobalVariable.swift */,
 				A0787EB221560EE2002EF57A /* UIViewController+HUD.swift */,
 				A0787EBB21566772002EF57A /* UIViewController+NavigationBar.swift */,
 				A0787EBD21566CB4002EF57A /* UIViewController+KEY.swift */,
@@ -246,7 +254,7 @@
 		EB786A48D584A452634CD186 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				91CD8106FCE1A8390DC3D204 /* libPods-YZCamera.a */,
+				F128FA2431E82D659A502726 /* Pods_YZCamera.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -262,7 +270,7 @@
 				A0787E8221549211002EF57A /* Sources */,
 				A0787E8321549211002EF57A /* Frameworks */,
 				A0787E8421549211002EF57A /* Resources */,
-				AACFFBA80F2B6741C284AE23 /* [CP] Copy Pods Resources */,
+				CED3FBA894C172A10D4B5647 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,30 +347,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AACFFBA80F2B6741C284AE23 /* [CP] Copy Pods Resources */ = {
+		CED3FBA894C172A10D4B5647 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera-resources.sh",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YZCamera/Pods-YZCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -386,6 +394,7 @@
 				A0787EC52157363F002EF57A /* MoreAlbumCollectionViewCell.swift in Sources */,
 				A0787EAC215603DF002EF57A /* SaveViewController.swift in Sources */,
 				A0787ED1215872B6002EF57A /* EditSelectToolBar.swift in Sources */,
+				A02C8D5D22EA927E0058D588 /* Define.swift in Sources */,
 				A0787EBC21566772002EF57A /* UIViewController+NavigationBar.swift in Sources */,
 				A0787EA72154E719002EF57A /* MainBottomView.swift in Sources */,
 				A0787ED921589B6F002EF57A /* EditOperationBar.swift in Sources */,
@@ -393,7 +402,6 @@
 				A0787EB321560EE2002EF57A /* UIViewController+HUD.swift in Sources */,
 				A0787ECC21578E75002EF57A /* EditPhotoToolBarCell.swift in Sources */,
 				A0787EB5215624B1002EF57A /* AlbumViewController.swift in Sources */,
-				A0787EA52154D811002EF57A /* GlobalVariable.swift in Sources */,
 				A0787EC321573284002EF57A /* MoreAlbumViewController.swift in Sources */,
 				A0787EE1215A6B02002EF57A /* MainFilterView.swift in Sources */,
 				A0787E9D2154928E002EF57A /* MainViewController.swift in Sources */,
@@ -560,7 +568,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "YZCamera/YZCamera-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -582,7 +590,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Q-YiZhong.YZCamera";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "YZCamera/YZCamera-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

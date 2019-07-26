@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreImage
+import GPUImage
 
 enum FilterStyleEffect: String, CaseIterable {
     case Chrome = "CIPhotoEffectChrome"

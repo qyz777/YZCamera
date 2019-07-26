@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class AlbumModel: NSObject {
+class AlbumModel {
     var albumName: String?
     var firstImage: UIImage?
     var collection: PHAssetCollection?

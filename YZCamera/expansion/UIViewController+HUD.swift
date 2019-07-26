@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 let keyWindow = UIApplication.shared.keyWindow
 

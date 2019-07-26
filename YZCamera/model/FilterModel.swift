@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterModel: NSObject {
+class FilterModel {
     var filterImage: UIImage?
     var title: String?
 }
